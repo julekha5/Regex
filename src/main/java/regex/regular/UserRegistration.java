@@ -4,14 +4,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
- * Check user mobile number with regex
+ * Check user password rule1 with regex
  */
 public class UserRegistration {
-	// method for mobile number pattern
-	public boolean isMobileNumber(String phone) {
-		String regex = "^[0-9]{2}+[ ][0-9]{10}$";
+	// method for password rule1 pattern
+	public boolean isValidPassword(String pass) {
+        String regex = "^[a-zA-Z0-9+-_!@#$%^&*(){}'.,]{8,}";
 		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(phone);
+		Matcher matcher = pattern.matcher(pass);
 		if (matcher.matches()) {
 			return true;
 		}
@@ -21,7 +21,7 @@ public class UserRegistration {
 	public static void main(String[] args) {
 		UserRegistration user = new UserRegistration();
 
-		System.out.println(user.isMobileNumber("91 9999999999"));
-		System.out.println(user.isMobileNumber("919999999999"));
+		System.out.println(user.isValidPassword("abc#2345.#"));
+		System.out.println(user.isValidPassword("91smsm,"));
 	}
 }
