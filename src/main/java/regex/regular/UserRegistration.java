@@ -4,16 +4,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
- * Check user password rule4 with regex
- * min 8 character
- * one upper case
- * one numeric
- *  at least 1 special character 
- */
+ * Email sample
+ * */
 public class UserRegistration {
-	// method for password rule2 pattern
-	public boolean isValidPassword(String pass) {
-        String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!#@%^&*(){}])[a-zA-Z0-9+-_!@#$%^&*(){}'.,]{8,}$";
+	// method for email test pattern
+	public boolean isValidEmailTest(String pass) {
+        String regex = "^[a-z.+_-]+[.a-z0-9]*+@[a-z0-9]+[.a-z]+[.a-z0-9]*$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(pass);
 		if (matcher.matches()) {
@@ -25,7 +21,17 @@ public class UserRegistration {
 	public static void main(String[] args) {
 		UserRegistration user = new UserRegistration();
 
-		System.out.println(user.isValidPassword("fdjowiei8776#A"));
-		System.out.println(user.isValidPassword("abvlkkm.-"));
+		System.out.println(user.isValidEmailTest("abc@.com"));
+		System.out.println(user.isValidEmailTest("abc123@.com.co"));
+        System.out.println(user.isValidEmailTest("abc@yahoo.com"));
+        System.out.println(user.isValidEmailTest("abc-100@yahoo.com"));
+        System.out.println(user.isValidEmailTest("abc.100@yahoo.com"));
+        System.out.println(user.isValidEmailTest("abc111@abc.com"));
+        System.out.println(user.isValidEmailTest("abc-100@abc.net"));
+        System.out.println(user.isValidEmailTest("abc.100@abc.com.au"));
+        System.out.println(user.isValidEmailTest("abc@1.com"));
+        System.out.println(user.isValidEmailTest("abc@yahoo.com.com"));
+        System.out.println(user.isValidEmailTest("abc+100@yahoo.com"));
+
 	}
 }
