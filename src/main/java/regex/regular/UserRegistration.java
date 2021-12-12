@@ -4,11 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
- * Check user first name with regex
+ * Check user last name with regex
  */
 public class UserRegistration {
-	// method for check firstname pattern
-	public boolean isFirstName(String fname) {
+	// method for check last name pattern
+	public boolean isLastName(String fname) {
 		String regex = "^[A-Z][a-z]{2,}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(fname);
@@ -19,8 +19,8 @@ public class UserRegistration {
 	}
 
 	public static void main(String[] args) {
-		UserRegistration first = new UserRegistration();
-		System.out.println(first.isFirstName("Julekha"));
-		System.out.println(first.isFirstName("JulekhaA"));
+		UserRegistration user = new UserRegistration();
+		System.out.println(user.isLastName("Mulani"));
+		System.out.println(user.isLastName("MulaNi"));
 	}
 }
