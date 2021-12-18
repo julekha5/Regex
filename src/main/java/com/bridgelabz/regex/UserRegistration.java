@@ -8,28 +8,25 @@ import java.util.regex.Pattern;
 /*
  * Use Of Functional Interface and Lambda Expression 
  */
+
 @FunctionalInterface
-interface IFirstName {
-//To check valid first name method	
-	public boolean isFirstName(String fname);
+interface ILastName {
+//To check valid last name method 
+	public boolean isLastName(String lname);
 }
 
 public class UserRegistration {
 
-	public boolean isFirstName(String fname) {
+	public boolean isLastName(String lname) {
 		String regex = "^[A-Z][a-z]{2,}$";
 		Pattern pattern = Pattern.compile(regex);
 		Predicate<String> predicateObj = pattern.asPredicate();
-		return predicateObj.test(fname);
-		/*
-		 * other logic Predicate<Pattern> predicateObj = matcher ->
-		 * matcher.matcher(fname).matches();
-		 */
+		return predicateObj.test(lname);
 	}
 
 	public static void main(String[] args) {
 		UserRegistration user = new UserRegistration();
-		System.out.println(user.isFirstName("Julekha")); // true
-		System.out.println(user.isFirstName("julekha")); // false
+		System.out.println(user.isLastName("Mulani")); // true
+		System.out.println(user.isLastName("muLani")); // false
 	}
 }
