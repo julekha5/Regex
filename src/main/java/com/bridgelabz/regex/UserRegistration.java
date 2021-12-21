@@ -23,9 +23,21 @@ public boolean isLastName(String lname);
 
 @FunctionalInterface
 interface IEmail{
-public boolean isValidEmail(String fname);
+//To check valid email	
+public boolean isValidEmail(String email);
 }
 
+@FunctionalInterface
+interface IMobile{
+//To check valid mobile	
+public boolean isValidMobileNumber(String phone);
+}
+
+@FunctionalInterface
+interface IPassword{
+//To check password
+public boolean isValidPassword(String fname);
+}
 
 public class UserRegistration {
     
